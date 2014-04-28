@@ -7,6 +7,8 @@
 package gosu;
 
 import environment.ApplicationStarter;
+import java.awt.Color;
+import java.awt.Graphics;
 
 /**
  *
@@ -26,3 +28,5 @@ public class GoSu {
     }
     
 }
+
+
