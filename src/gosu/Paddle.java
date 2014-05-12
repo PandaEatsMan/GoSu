@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 /**
  *
@@ -36,6 +37,11 @@ public class Paddle extends Actor {
         graphics.fill3DRect(this.getPosition().x, this.getPosition().y, this.getSize().width, this.getSize().height, true);
     
     }
+    @Override
+    public Rectangle getObjectBoundary() {
+        return new Rectangle(this.getPosition().x, this.getPosition().y, getSize().width, getSize().height);
+    }
+    
 
     /**
      * @return the size

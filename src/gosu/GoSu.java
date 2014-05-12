@@ -6,6 +6,7 @@
 
 package gosu;
 
+import audio.AudioPlayer;
 import environment.ApplicationStarter;
 
 /**

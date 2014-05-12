@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 /**
  *
@@ -28,11 +29,16 @@ public class Pong extends Actor {
 
     public void paint(Graphics graphics){
         graphics.setColor(getColor());
-        graphics.fill3DRect(this.getPosition().x, this.getPosition().y, this.getSize().width, this.getSize().height, true);
+        graphics.fillOval(this.getPosition().x, this.getPosition().y, this.getSize().width, this.getSize().height);
         
         
     }
 
+    @Override
+    public Rectangle getObjectBoundary() {
+        return new Rectangle(this.getPosition().x, this.getPosition().y, getSize().width, getSize().height);
+    }
+    
     /**
      * @return the size
      */

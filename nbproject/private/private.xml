@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ZackB/Documents/GitHub/GoSu/src/gosu/Paddle.java</file>
-            <file>file:/C:/Users/ZackB/Documents/GitHub/GoSu/src/gosu/GoSu.java</file>
-            <file>file:/C:/Users/ZackB/Documents/GitHub/GoSu/src/gosu/GameEnvironment.java</file>
-            <file>file:/C:/Users/ZackB/Documents/GitHub/GoSu/src/gosu/Directions.java</file>
-            <file>file:/C:/Users/ZackB/Documents/GitHub/GoSu/src/gosu/Pong.java</file>
+            <file>file:/C:/Users/Daniel/Documents/GitHub/GoSu/src/gosu/Pong.java</file>
+            <file>file:/C:/Users/Daniel/Documents/GitHub/GoSu/src/gosu/Paddle.java</file>
+            <file>file:/C:/Users/Daniel/Documents/GitHub/GoSu/src/gosu/Directions.java</file>
+            <file>file:/C:/Users/Daniel/Documents/GitHub/GoSu/src/gosu/GoSu.java</file>
+            <file>file:/C:/Users/Daniel/Documents/GitHub/GoSu/src/gosu/GameEnvironment.java</file>
         </group>
     </open-files>
 </project-private>
