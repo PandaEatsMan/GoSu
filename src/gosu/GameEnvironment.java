@@ -1,4 +1,4 @@
-/*
+        /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -44,11 +44,11 @@ class GameEnvironment extends Environment {
 
     @Override
     public void initializeEnvironment() {
-        this.paddleRight = new Paddle(new Point(750, 550), new Velocity(0, -7));
+        this.paddleRight = new Paddle(new Point(750, 550), new Velocity(0, -13));
         this.paddleRight.getSize().height = 75;
         this.getActors().add(paddleRight);
 
-        this.pong = new Pong(new Point(500, 200), new Velocity(-5, -5));
+        this.pong = new Pong(new Point(500, 200), new Velocity(-10, -10));
         this.getActors().add(pong);
 
     }
@@ -65,8 +65,14 @@ class GameEnvironment extends Environment {
         } else if (this.pong.getPosition().x <= 0) {
             this.pong.getVelocity().x *= -1;
             AudioPlayer.play("/reasources/boing_01.wav");
+        } else if (this.pong.getPosition().x >= 875) {
+            this.pong.getVelocity().x *= -1;
+            AudioPlayer.play("/reasources/boing_01.wav");
+        } else if (paddleRight.getPosition().y <= 0) {
+            this.paddleRight.getVelocity().y *= -1;
+        } else if (this.paddleRight.getPosition().y >= this.getSize().height) {
+            this.paddleRight.getVelocity().y *= -1;
         }
-
     }
 
     @Override
@@ -83,9 +89,9 @@ class GameEnvironment extends Environment {
 
     @Override
     public void keyPressedHandler(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             this.paddleRight.getVelocity().y *= -1;
-        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             this.paddleRight.getVelocity().y *= 1;
 
         }
@@ -101,5 +107,6 @@ class GameEnvironment extends Environment {
 
     @Override
     public void paintEnvironment(Graphics graphics) {
+        graphics.drawLine(825, 0, 825, this.getSize().height);
     }
 }

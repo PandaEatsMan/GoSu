@@ -20,8 +20,8 @@ import java.awt.Rectangle;
  * @author ZackB
  */
 public class Pong extends Actor {
-    private Dimension size = new Dimension(10, 10);
-    private Color color = Color.PINK;
+    private Dimension size = new Dimension(17, 17);
+    private Color color = Color.RED;
 
     public Pong(Point position, Velocity velocity) {
         super(position, velocity);
