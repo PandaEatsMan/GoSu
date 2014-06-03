@@ -12,6 +12,7 @@ import environment.Direction;
 import environment.Environment;
 import environment.Velocity;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
@@ -28,6 +29,7 @@ class GameEnvironment extends Environment {
 //    private Object Pong;
     private Paddle paddleRight;
     private Pong pong;
+
 //    private final Point position;
 //    private final int speed;
 //    private final Direction direction;
@@ -41,6 +43,7 @@ class GameEnvironment extends Environment {
 //    GameEnvironment() {
 //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
+    private int score;
 
     @Override
     public void initializeEnvironment() {
@@ -80,18 +83,23 @@ class GameEnvironment extends Environment {
         if ((paddleRight != null) && (pong != null)) {
             if (this.paddleRight.intersects(this.pong)) {
                 System.out.println("HIT!!!!!!!!!!!!!!!!!!!!!!!!!");
+                this.score += 1;
+                System.out.println("score");
                 this.pong.getPosition().x = paddleRight.getPosition().x - pong.getSize().width;
                 this.pong.getVelocity().x *= -1;
                 AudioPlayer.play("/reasources/thud.wav");
+
             }
+
         }
+
     }
 
     @Override
     public void keyPressedHandler(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
             this.paddleRight.getVelocity().y *= -1;
-        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
             this.paddleRight.getVelocity().y *= 1;
 
         }
@@ -108,5 +116,8 @@ class GameEnvironment extends Environment {
     @Override
     public void paintEnvironment(Graphics graphics) {
         graphics.drawLine(825, 0, 825, this.getSize().height);
+        graphics.setFont(new Font("Calibri ", Font.ITALIC, 50));
+        graphics.drawString("Score: " + this.score, 50, 50);
     }
+
 }
