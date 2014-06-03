@@ -7,12 +7,14 @@
 package gosu;
 
 import environment.Actor;
+import environment.Direction;
 import environment.Velocity;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 /**
  *
@@ -21,6 +23,7 @@ import java.awt.Point;
 public class Paddle extends Actor {
     private Dimension size = new Dimension(10, 100);
     private Color color = Color.BLACK;
+    private Direction direction;
     
     public Paddle(Point position, Velocity velocity) {
         super(position, velocity);
@@ -34,7 +37,11 @@ public class Paddle extends Actor {
     public void paint(Graphics graphics){
         graphics.setColor(getColor());
         graphics.fill3DRect(this.getPosition().x, this.getPosition().y, this.getSize().width, this.getSize().height, true);
-    
+    }
+
+    @Override
+    public Rectangle getObjectBoundary() {
+        return new Rectangle(this.getPosition().x, this.getPosition().y, size.width, size.height);
     }
 
     /**
@@ -63,6 +70,10 @@ public class Paddle extends Actor {
      */
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    void setDirection(Direction direction) {
+        this.direction = direction;
     }
 
 }

@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ */       
 
 package gosu;
 
@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 /**
  *
@@ -21,6 +22,7 @@ import java.awt.Point;
 public class Pong extends Actor {
     private Dimension size = new Dimension(10, 10);
     private Color color = Color.PINK;
+    private Direction direction;
 
     public Pong(Point position, Velocity velocity) {
         super(position, velocity);
@@ -29,8 +31,11 @@ public class Pong extends Actor {
     public void paint(Graphics graphics){
         graphics.setColor(getColor());
         graphics.fill3DRect(this.getPosition().x, this.getPosition().y, this.getSize().width, this.getSize().height, true);
-        
-        
+    }
+    
+    @Override
+    public Rectangle getObjectBoundary() {
+        return new Rectangle(this.getPosition().x, this.getPosition().y, size.width, size.height);
     }
 
     /**
@@ -59,5 +64,9 @@ public class Pong extends Actor {
      */
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    void setDirection(Direction direction) {
+        this.direction = direction;
     }
 }
