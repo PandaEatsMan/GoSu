@@ -90,16 +90,16 @@ class GameEnvironment extends Environment {
                 AudioPlayer.play("/reasources/thud.wav");
 
             }
-
+            
         }
 
     }
 
     @Override
     public void keyPressedHandler(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             this.paddleRight.getVelocity().y *= -1;
-        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             this.paddleRight.getVelocity().y *= 1;
 
         }
